@@ -14,8 +14,8 @@ const Signer = (pfx, passPfx, source = "", target = "", options = defaultOptions
     return new Promise((resolve, reject) => {
         try {
             let config = Object.assign(defaultOptions, options);
-            config.reason = config.reason.replace(" ", "_");
-            config.location = config.location.replace(" ", "_");
+            config.reason = config.reason.replace(/[\s]+/g, "_");
+            config.location = config.location.replace(/[\s]+/g, "_");
             let jar = path.join(__dirname, '../dist/Signature.jar');
             let command = `java -jar "${jar}" "PFX=${pfx};PASSPFX=${passPfx};SOURCE=${source};TARGET=${target}"`;
             // generar comando
