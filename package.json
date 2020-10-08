@@ -1,9 +1,14 @@
 {
   "name": "node-signature",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "description": "Firma digital",
   "main": "./src/index.js",
+  "homepage": "https://ccffigueroa-pucallpa.vercel.app/",
+  "repository": {
+    "type": "privado",
+    "url": "https://github.com/jocker2206/node-signature"
+  },
   "scripts": {
     "test": "node ./src/test.js"
   },
