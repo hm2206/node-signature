@@ -1,6 +1,16 @@
 # Firmador de PDF con node.js y Java
 
 
+#### requerimientos 
+
+```
+
+ jdk8
+ node.js 10.*
+
+```
+
+
 #### Configurar Hoja Cliente
 
 ```
