@@ -1,6 +1,6 @@
 {
   "name": "node-signature",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "private": false,
   "description": "Firma digital prueba",
   "main": "./src/index.js",
