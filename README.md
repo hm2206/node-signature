@@ -27,8 +27,8 @@
 #### Medidas del rectagulo de la firma visible
 
 ```
-    Width = 108
-    Height = 32
+    Width = 150
+    Height = 70
 
 ```
 
