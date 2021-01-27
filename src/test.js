@@ -1,6 +1,6 @@
-const { Signer, getPositions } = require('./index');
+const { Signer } = require('./index');
+const { getPositions } = require('../client/index');
 const path = require('path');
-const fs = require('fs');
 
 let pfx = path.join(__dirname, "texas.pfx");
 let pdf = path.join(__dirname, "example.pdf");
