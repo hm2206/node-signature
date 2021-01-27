@@ -1,8 +1,8 @@
 {
   "name": "node-signature",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "private": false,
-  "description": "Firma digital prueba",
+  "description": "Firma digital estable",
   "main": "./src/index.js",
   "homepage": "https://ccffigueroa-pucallpa.vercel.app/",
   "repository": {
