@@ -10,6 +10,8 @@ const defaultOptions = {
     urlImage: path.join(__dirname, 'logo.png')
 };
 
+const required = ['page', 'position'];
+
 const Signer = (pfx, passPfx, source = "", target = "", options = defaultOptions) => {
     return new Promise((resolve, reject) => {
         try {
@@ -20,7 +22,9 @@ const Signer = (pfx, passPfx, source = "", target = "", options = defaultOptions
             let command = `java -jar "${jar}" "PFX=${pfx};PASSPFX=${passPfx};SOURCE=${source};TARGET=${target}"`;
             // generar comando
             for(let conf in config) {
-                command += `;${conf.toUpperCase()}=${config[conf]}`;
+                let value = config[conf];
+                if (!required.includes(conf) && value) command += `;${conf.toUpperCase()}=${config[conf]}`;
+                if (required.includes(conf)) command += `;${conf.toUpperCase()}=${config[conf]}`;
             }
             // executar comando
             execSync(command);

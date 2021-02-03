@@ -1,6 +1,6 @@
 {
   "name": "node-signature",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "private": false,
   "description": "Firma digital LTE",
   "main": "./src/index.js",

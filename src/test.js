@@ -19,12 +19,12 @@ const test1 = () => {
 const test2 = () => {
     Signer(pfx, "joserogelio", pdf, salida, {
         position: 32,
-        page: 1
+        page: 1,
+        location: ""
     })
     .then(res => console.log(res))
     .catch(err => console.log(err));
 }
 
-test1();
+// test1();
 test2();
-console.log(getPositions({ width: 595, height: 842 }));
