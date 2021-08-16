@@ -19,8 +19,7 @@ const test1 = () => {
 const test2 = () => {
     Signer(pfx, "joserogelio", pdf, salida, {
         position: 32,
-        page: 1,
-        location: ""
+        page: 1
     })
     .then(res => console.log(res))
     .catch(err => console.log(err));

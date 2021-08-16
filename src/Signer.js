@@ -13,23 +13,30 @@ const defaultOptions = {
 const required = ['page', 'position'];
 
 const Signer = (pfx, passPfx, source = "", target = "", options = defaultOptions) => {
+
+    options = Object.assign(defaultOptions, options);
+
     return new Promise((resolve, reject) => {
         try {
             let config = Object.assign(defaultOptions, options);
             config.reason = config.reason.replace(/[\s]+/g, "_");
             config.location = config.location.replace(/[\s]+/g, "_");
             let jar = path.join(__dirname, '../dist/Signature.jar');
-            let command = `java -jar "${jar}" "PFX=${pfx};PASSPFX=${passPfx};SOURCE=${source};TARGET=${target}"`;
+            let paramsOption = "";
+            let command = `java -jar "${jar}" "${pfx}" "${passPfx}" "${source}" "${target}" `;
             // generar comando
             for(let conf in config) {
                 let value = config[conf];
-                if (!required.includes(conf) && value) command += `;${conf.toUpperCase()}=${config[conf]}`;
-                if (required.includes(conf)) command += `;${conf.toUpperCase()}=${config[conf]}`;
+                if (!required.includes(conf) && value) paramsOption += `${conf.toUpperCase()}=${config[conf]};`;
+                if (required.includes(conf)) paramsOption += `${conf.toUpperCase()}=${config[conf]};`;
             }
+            // agregar options
+            command += `"${paramsOption}"`
             // executar comando
             execSync(command);
             // resolver
             resolve({
+                options,
                 realPath: target,
                 message: "El pdf se firmó correctamente!"
             });
